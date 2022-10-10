@@ -50,8 +50,11 @@ def ingest_data():
             if len(listagrande) > 0:
                 continuecluster = lineas[x].strip().lower()
                 continuecluster = " ".join(continuecluster.split())
+                continuecluster = continuecluster.replace(".","")
                 listagrande[len(listagrande)-1][3] = listagrande[len(listagrande)-1][3] + " " + continuecluster
 
     df = pd.DataFrame(listagrande, columns =newcolums) 
 
     return df
+
+print(ingest_data().principales_palabras_clave.to_list()[1])
